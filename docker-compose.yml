@@ -1,0 +1,35 @@
+services:
+  api:
+    build: .
+    container_name: medical_agent_api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - ./uploads:/app/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+
+  db:
+    image: ankane/pgvector:latest
+    container_name: medical_agent_db
+    environment:  
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: medical_agent_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d medical_agent_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      
+volumes:
+  pg_data: 

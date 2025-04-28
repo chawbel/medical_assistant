@@ -1,0 +1,23 @@
+fastapi
+uvicorn[standard]
+langchain
+langgraph
+langchain-mcp-adapters
+langchain-google-genai
+langchain_community
+langchain_cohere
+google-genai
+psycopg2-binary
+sqlalchemy
+pgvector
+langchain-postgres
+python-dotenv
+pydantic-settings
+pillow
+cohere
+# torch 
+# torchvision
+#unstructured
+#tiktoken
+#elevenlabs
+#pillow
