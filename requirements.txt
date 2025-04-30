@@ -15,6 +15,9 @@ python-dotenv
 pydantic-settings
 pillow
 cohere
+unstructured[pdf]
+pdf2image
+pytesseract
 # torch 
 # torchvision
 #unstructured

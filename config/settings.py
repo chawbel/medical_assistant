@@ -22,12 +22,13 @@ class Settings(BaseSettings):
     cohere_api_key: str = os.getenv("COHERE_API_KEY")
 
     rag_embedding_model_name: str = "models/text-embedding-004"
-    rag_chunk_size: int = 512
-    rag_chunk_overlap: int = 50
+    rag_chunk_size: int = 1000
+    rag_chunk_overlap: int = 150
     rag_embedding_dim: int = 768
     rag_vector_collection_name: str = "medical_documents"
     rag_confidence_threshold: float = 0.7
     rag_reranker_top_k: int = 3
+    rag_chunking_strategy: str = "recursive"
 
     reranker: str = "rerank-v3.5"
 
